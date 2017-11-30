@@ -33,7 +33,7 @@ morse.encode(STRING);
 
 ## Example
 
-Refer to examples under example folder.
+Refer to example files.
 
 
 ## About Me
