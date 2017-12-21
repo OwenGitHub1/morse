@@ -1,5 +1,17 @@
+/**
+ * encode string to morse code or decode morse code to string
+ * version:1.0.1
+ * @author yong.wei
+ * github:https://github.com/OwenGitHub1/morse
+ * blog:http://www.jianshu.com/u/7ffa168d774e
+ */
+
 'use strict';
 
+/**
+ * dictionary for charter and morse code
+ * @type {[*]}
+ */
 var dic = [
 	['A', '.-'],
 	['B', '-...'],
@@ -133,13 +145,13 @@ var morse = {
 		for (var i = 0; i < len; i++) {
 			if (!isValidMorseCode(trimStrList[i])){
 				return 'some error in your morse code, please recheck it';
-			} else {
-				dic.forEach(function (dicItem) {
-					if (dicItem[1] === trimStrList[i]) {
-						result.push(dicItem[0]);
-					}
-				});
 			}
+
+			dic.forEach(function (dicItem) {
+				if (dicItem[1] === trimStrList[i]) {
+					result.push(dicItem[0]);
+				}
+			});
 		}
 		return result.join('');
 	},
@@ -158,13 +170,12 @@ var morse = {
 			trimStrList[i] = trimStrList[i].toUpperCase();
 			if (isSpecialCharacter(trimStrList[i]) === true) {
 				return 'do not include special character in encode string';
-			} else {
-				dic.forEach(function (dicItem) {
-					if (dicItem[0] === trimStrList[i]) {
-						result.push(dicItem[1]);
-					}
-				});
 			}
+			dic.forEach(function (dicItem) {
+				if (dicItem[0] === trimStrList[i]) {
+					result.push(dicItem[1]);
+				}
+			});
 		}
 		return result.join(' ');
 	},
